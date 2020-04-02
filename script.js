@@ -1,8 +1,8 @@
-//00000000000000000000000000000000000000000000000000000000000000000000
-//00----------------------------------------------------------------00
-//00---------------- EX Javascripts.info ---------------------------00
-//00----------------------------------------------------------------00
-//00000000000000000000000000000000000000000000000000000000000000000000
+// 00000000000000000000000000000000000000000000000000000000000000000000
+// 00----------------------------------------------------------------00
+// 00---------------- EX Javascripts.info ---------------------------00
+// 00----------------------------------------------------------------00
+// 00000000000000000000000000000000000000000000000000000000000000000000
 
 // ---------------- EX Controllo ---------------------------
 
@@ -40,7 +40,7 @@
 
 // alert( message );
 
-//--------------------------------------------
+// --------------------------------------------
 
 // let number = prompt("inserisci un numero!");
 // number = Number(number);
@@ -56,7 +56,7 @@
 //     alert("-1");
 // }
 
-//--------------------------------------------
+// --------------------------------------------
 
 
 
@@ -66,7 +66,7 @@
 
 // let message = (login == "Director") ? "Greetings" : (login == "") ? "no login" : (login == "") ?  : "" 
 
-//--------------------------------------------
+// --------------------------------------------
 
 // let age = prompt("");
 
@@ -88,7 +88,7 @@
 
 // console.log(age);
 
-// ---------- CONTROLLO VERIFICA LOGIN ---------------
+// ---------- EX CONTROLLO VERIFICA LOGIN ---------------
 
 // let requireAccess = prompt("Ciao chi sei?");
 // console.log(requireAccess);
@@ -205,16 +205,16 @@
 
 //   console.log('-------------.-.-.-.-.-.-------------');
   
-  // let i = 0;
-  // while (i < 3) {
+//   let i = 0;
+//   while (i < 3) {
     
-  //   i++;
-  //   console.log('number '+ i + '!')
+//     i++;
+//     console.log('number '+ i + '!')
       
-  // }
+//   }
 
   
-// ---------------------- EX Js.info - Worm  SWITCH CASEk--------------
+// ---------------------- EX  Worm  SWITCH CASEk--------------
 
 // let risposta = prompt("quanto è lungo?");
 // let worm = risposta;
@@ -232,3 +232,133 @@
 //   default:
 //     alert( "mmm troppo lontano" );
 // }
+
+
+// ---
+
+// let a = '1';
+// let b = 0;
+
+// switch (+a) {  
+//   case b + 1: // the result is equal to a
+//     alert('this run, because +a is 1, exactly equal b + 1')
+//     break;
+
+//   default:
+//     alert('this doesn\'t  run')
+//     break;
+// }
+
+
+// ------------------- raggruppamento/Grouping case------------------------------
+
+// for (let index = 0; index < 5; index++) {
+
+// let b = prompt('Inserisci un numero');
+// let a = parseInt(b) ;
+
+// console.log(a);
+//   switch (a) {
+//     case 2: // (*) grouped two cases
+//     case 4:
+//     case 8:
+//     case 10:
+//       alert('this number is equal!');
+//       break;
+//     case 3: // (*) grouped two cases
+//     case 5:
+//     case 7:
+//     case 9:
+//       alert("This number is odd");
+//       break;
+  
+//     default:
+//       alert('The result is strange. Really.');
+//   }
+  
+// }
+// -------Scrivi il codice usando if..elsequale corrisponderebbe a quanto segue switch:---
+// // ---- 
+// switch (browser) {
+//   case 'Edge':
+//     alert( "You've got the Edge!" );
+//     break;
+
+//   case 'Chrome':
+//   case 'Firefox':
+//   case 'Safari':
+//   case 'Opera':
+//     alert( 'Okay we support these browsers too' );
+//     break;
+
+//   default:
+//     alert( 'We hope that this page looks ok!' );
+// }
+// ----- else if traduction-------------
+
+// let browserInput = prompt('Che browser utilizzi?');
+// let browser = browserInput.toLowerCase();
+
+// if (browser == 'chrome') {
+//   alert('Okay we support these browsers too');
+// } 
+// else if (browser == 'edge') {
+//   alert('You\'ve got the Edge!');
+// } 
+// else if (browser == 'firefox') {
+//   alert('Okay we support these browsers too');
+// }
+// else if (browser == 'opera') {
+//   alert('Okay we support these browsers too');
+// }
+// else if (browser == 'safari') {
+//   alert('Okay we support these browsers too');
+// } 
+// else alert('We hope that this page looks ok!');
+
+// ---------- alternative solction -------------
+
+// if (browser == 'edge') {
+//   alert( "You've got the Edge!" );
+// }
+// else if ( browser == 'chrome' || browser == 'opera' || browser == 'safari' || browser == 'firefox') {
+
+//   alert('Okay we support these browsers too');
+// }
+// else {
+//   alert( 'We hope that this page looks ok!' );
+// }
+
+// ex ----------- Riscrivi il codice seguente usando una singola switchistruzione: -----
+
+// let a = +prompt('a è uguale ?');
+// let a = parseInt(prompt('a è uguale ?'));
+
+// // if (a == 0) {
+// //   alert( 0 );
+// // }
+// // if (a == 1) {
+// //   alert( 1 );
+// // }
+
+// // if (a == 2 || a == 3) {
+// //   alert( '2,3' );
+// // }
+
+// // ----
+
+// switch (a) {
+//   case 0:
+//     alert( 0 )
+//     break;
+//   case 1:
+//     alert( 1 )
+//     break;
+//   case 2:
+//   case 3:
+//     alert( '2,3' )
+//     break;
+// }
+
+// [ex Function] ------------------------------------------------------
+
