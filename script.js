@@ -383,7 +383,7 @@
 
 // showMessage(); // Hello, John
 
-// ------------ function parameters ---------------
+// ------------ function parametri ---------------
 
 // function showMessage(from, text) { // arguments: from, text
   // alert(from + ': ' + text);
@@ -392,7 +392,105 @@
 // showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
 // showMessage('Ann', "What's up?"); // Ann: What's up? (**)
 
+// ------------ function parametri value STANDARD-------------------
 
+// function showMessage(from, text = "no text given") {
+//   alert( from + ": " + text );
+// }
 
+// showMessage("Ann"); // Ann: no text given
 
+// ------------ function parametri OLD value STANDARD-------------------
 
+// function showMessage(from, text) {
+//   if (text === undefined) {
+//     text = 'no text given';
+//   }
+
+//   alert( from + ": " + text );
+// }
+
+// --- or --
+
+// function showMessage(from, text) {
+//   // if text is falsy then text gets the "default" value
+//   text = text || 'no text given';
+//   ...
+// }
+// ------------  Restituzione value function -------------------
+
+// function controlloEtà(age) {
+//   if (age >= 18) {
+//     return true;
+//   } else {
+//     return confirm('HAI IL PERMESSO DEI TUOI GENITORI?');
+//   }
+// }
+
+// let age = prompt('Quanti anni hai?', 18);
+
+// if ( controlloEtà(age) ) {
+//   alert( 'Accesso approvato' );
+// } else {
+//   alert( 'Accesso negato' );
+// }
+
+// //  ------- return anche senza vaolre ------------------
+
+// function mostraFilm(age) {
+//   if (!controlloEtà(age)) {
+//     return;
+//   }
+
+//   alert('Puoi vedere il film');
+  
+// }
+
+// Una funzione con uno spazio vuoto o senza return  ritorna UNDEFINED
+// Se una funzione non restituisce un valore, è uguale a se restituisce undefined:
+
+// function nonFàNiente() { /* empty */ }
+
+// alert( nonFàNiente() === undefined ); // true
+
+// // Un vuoto returnè uguale a return undefined:
+
+// function nonFàNiente() {
+//   return;
+// }
+
+// alert( nonFàNiente() === undefined ); // true
+
+// function showPrimes(n) {
+//   nextPrime: for (let i = 2; i < n; i++) {
+
+//     for (let j = 2; j < i; j++) {
+//       if (i % j == 0) continue nextPrime;
+//     }
+
+//     console.log( i ); // a prime
+//   }
+// }
+
+// let primi = showPrimes(20);
+// console.log(primi);
+
+//-------
+
+// function showPrimes(n) {
+
+//   for (let i = 2; i < n; i++) {
+//     if (!isPrime(i)) continue;
+
+//     console.log(i); // a prime
+//   }
+// }
+
+// function isPrime(n) {
+//   for (let i = 2; i < n; i++) {
+//     if ( n % i == 0) return false;
+//   }
+//   return true;
+// }
+// let primi = showPrimes(20);
+// console.log(primi);
