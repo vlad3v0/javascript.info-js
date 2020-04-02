@@ -362,3 +362,37 @@
 
 // [ex Function] ------------------------------------------------------
 
+// function showMessage() {
+//   let message = "Hello, I'm JavaScript!"; // local variable
+
+//   alert( message );
+// }
+
+// showMessage(); // Hello, I'm JavaScript!
+
+// alert( message ); // <-- Error! The variable is local to the function
+
+
+
+// let userName = 'John'; // external variable
+
+// function showMessage() {
+//   let message = 'Hello, ' + userName;
+//   alert(message);
+// }
+
+// showMessage(); // Hello, John
+
+// ------------ function parameters ---------------
+
+// function showMessage(from, text) { // arguments: from, text
+  // alert(from + ': ' + text);
+// }
+// 
+// showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
+// showMessage('Ann', "What's up?"); // Ann: What's up? (**)
+
+
+
+
+
