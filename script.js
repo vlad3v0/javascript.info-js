@@ -1,8 +1,13 @@
-// 00000000000000000000000000000000000000000000000000000000000000000000
-// 00----------------------------------------------------------------00
-// 00---------------- EX Javascripts.info ---------------------------00
-// 00----------------------------------------------------------------00
-// 00000000000000000000000000000000000000000000000000000000000000000000
+/*0000000000000000000000000000000000000000000000000000000000000000000
+ 00----------------------------------------------------------------00
+ 00---------------- EX Javascripts.info ---------------------------00
+ 00----------------------------------------------------------------00
+ 00000000000000000000000000000000000000000000000000000000000000000000*/
+
+
+/**********************************************************************
+******[ IF else ] *****************************************************
+***********************************************************************/
 
 // ---------------- EX Controllo ---------------------------
 
@@ -115,6 +120,9 @@
 // }
 
 
+/**********************************************************************
+******[ Loops , for - while ] *****************************************************
+***********************************************************************/
 
 // let num;
 
@@ -360,7 +368,9 @@
 //     break;
 // }
 
-// [ex Function] ------------------------------------------------------
+/**************************************************************************/ 
+/********[ Function] ******************************************************/
+/**************************************************************************/ 
 
 // function showMessage() {
 //   let message = "Hello, I'm JavaScript!"; // local variable
@@ -417,7 +427,7 @@
 //   text = text || 'no text given';
 //   ...
 // }
-// ------------  Restituzione value function -------------------
+/* ------------  Restituzione value function ------------------- */
 
 // function controlloEtà(age) {
 //   if (age >= 18) {
@@ -575,5 +585,229 @@ si moltiplica x da solo i n tempi e restituisce il risultato.*/
 // console.log(calPotenzaNumero(a,b) );
 
 
+/**********************************************************************
+******[ Function + EXPRESSIONS   ] ************************************
+***********************************************************************/
+// es ----
+
+// let sayHi = function() {
+//   alert( "Hello" );
+// };
+// // console.log(sayHi());
+
+// function sayHi() {   // (1) create
+//   alert( "Hello" );
+// }
+
+// let func = sayHi;    // (2) copy
+
+// func(); // Hello     // (3) run the copy (it works)!
+// sayHi(); // Hello    //     this still works too (why wouldn't it)
+//  
+/* The Function Declaration (1) creates the function and puts it into the variable named sayHi.
+Line (2) copies it into the variable func. Please note again: there are no parentheses after sayHi. If there were, then func = sayHi() would write the result of the call sayHi() into func, not the function sayHi itself.
+Now the function can be called as both sayHi() and func(). */
+
+/* CAllBack Function --------------------------------------------*/
+
+/* Let’s look at more examples of passing functions as values and using function expressions.
+We’ll write a function ask(question, yes, no) with three parameters:
+*question-Text of the question
+*yes-Function to run if the answer is “Yes”
+*no-Function to run if the answer is “No”
+The function should ask the question and, depending on the user’s answer, call yes() or no(): */
+
+// function askConfirm(question, blue, red) {
+//   if (confirm(question)) blue()
+//   else red();
+// }
+
+// function showBlue() {
+//   console.log('Pillola Blu , ottima scelta bianconiglio ');
+// }
+
+// function showRed() {
+//   console.log('Pillola Rossa , capisco la tua scelta , non ti giudicherò');  
+// }
+
+// askConfirm('Scegli una pillola, pillola Blu o Rossa?, Blu?', showBlue, showRed);
+
+// ---------- Anonimous Function -----------------
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// ask(
+//   "Do you agree?",
+//   function() { alert("You agreed."); }, // this is a anonymous function.
+//   function() { alert("You canceled the execution."); }
+// );
+/* Here, functions are declared right inside the ask(...) call.
+They have no name, and so are called anonymous. Such functions are not accessible 
+outside of ask (because they are not assigned to variables),
+but that’s just what we want here.
+Such code appears in our scripts very naturally, it’s in the spirit of JavaScript */
 
 
+// sayHi("John"); // Hello, John
+
+// // function sayHi(name) {
+// //   alert( `Hello, ${name}` );
+// // }
+
+// sayHi("John"); // error! è stata chiamat troppo presto in quanto la funzionea non è stata ancora letta
+
+// let sayHi = function(name) {  // (*) no magic any more
+//   alert( `Hello, ${name}` );
+// };
+
+// sayHi('George')
+
+// let age = 16; // take 16 as an example
+
+// if (age < 18) {
+//   welcome();               // \   (runs)
+//                            //  |
+//   function welcome() {     //  |
+//     alert("Hello!");       //  |  Function Declaration is available
+//   }                        //  |  everywhere in the block where it's declared
+//                            //  |
+//   welcome();               // /   (runs)
+
+// } else {
+
+//   function welcome() {
+//     alert("Greetings!");
+//   }
+// }
+
+// // Here we're out of curly braces,
+// // so we can not see Function Declarations made inside of them.
+
+// welcome();// Error: welcome is not defined
+
+//----------------------
+
+// let age = prompt("What is your age?", 18);
+
+// let welcome;
+
+// if (age < 18) {
+
+//   welcome = function() {
+//     alert("Hello!");
+//   };
+
+// } else {
+
+//   welcome = function() {
+//     alert("Greetings!");
+//   };
+
+// }
+
+// welcome(); // ok now
+
+// // or
+// let age = prompt("What is your age?", 18);
+
+// let welcome = (age < 18) ?
+//   function() { alert("Hello!"); } :
+//   function() { alert("Greetings!"); };
+
+// welcome(); // ok now
+
+/**********************************************************************
+******[ Function ARROW => ] *******************************************
+***********************************************************************/
+
+// ex -----------------
+
+// let func = (arg1, arg2, ...argN) => expression
+// it's egual to 
+// let func = function(arg1, arg2, ...argN) {
+//   return expression;
+// };
+// --------------------------
+// let sum = (a, b) => a + b;
+
+/* This arrow function is a shorter form of:
+
+let sum = function(a, b) {
+  return a + b;
+};
+*/
+// alert( sum(1, 2) ); // 3
+//-------------
+
+// let double = n => n * 2;
+// // roughly the same as: let double = function(n) { return n * 2 }
+
+// alert( double(3) ); // 6
+//-------------
+
+// let sayHi = () => alert("Hello!");
+
+// sayHi();
+//-------------
+
+// let age = prompt('What is your age?', 18);
+
+// let welcome = (age < 18) ?
+//  () => alert('Ciao') :
+//  () => alert('Buongiorno!');
+
+// welcome();
+// ---------------
+
+// let sum = (a,b) => {
+//   let result = a + b;
+//   return result;
+// }
+
+// console.log(sum(2,4));
+
+/* Arrow functions are handy for one-liners. They come in two flavors:
+
+Without curly braces: (...args) => expression – the right side is an expression:
+the function evaluates it and returns the result.
+With curly braces: (...args) => { body } – brackets allow us to write multiple statements
+inside the function, but we need an explicit return to return something. */
+
+/* --------------------- exercise ------------------- */
+/* Sostituisci le espressioni di funzione con le funzioni freccia nel codice seguente: */
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// ask(
+//   "Do you agree?",
+//   function() { alert("You agreed."); },
+//   function() { alert("You canceled the execution."); }
+// );
+
+/* ----------------- result -------------------------- */
+
+// let ask = (question, yes, no) => confirm(question) ? yes() : no();
+
+// ask(
+//   'Do you agree?',
+//   () => alert('You Agree'),
+//   () => alert('You calceled the execution ')
+//   );
+
+/**********************************************************************
+******[ javascript tip special => ] ***********************************
+***********************************************************************/
+
+// alert('Hello'); alert('World');
+
+//--------
+
+// alert("There will be an error after this message");
+
+// [1, 2].forEach(alert);
