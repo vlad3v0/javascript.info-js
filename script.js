@@ -475,7 +475,6 @@
 // let primi = showPrimes(20);
 // console.log(primi);
 
-//-------
 
 // function showPrimes(n) {
 
@@ -494,3 +493,87 @@
 // }
 // let primi = showPrimes(20);
 // console.log(primi);
+
+/* --------------------- exercise ------------------- */
+
+/* La seguente funzione ritorna true se il parametro age è maggiore di 18.
+Altrimenti chiede una conferma e restituisce il suo risultato. 
+Riscriverlo, per eseguire lo stesso, ma senza if, in una sola riga.
+Crea due varianti di checkAge:
+Utilizzando un operatore punto interrogativo ?
+Utilizzando OR || */
+
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Did parents allow you?');
+//   }
+// }
+
+
+/* ----------------- result -------------------------- */
+// let age = '';
+
+// function checkAge(age) { return (age >= 18) || 'Did youre parents allow you?' || 'Ritenta' };
+// console.log(checkAge(age));
+
+// function checkAge2(age) { return (age >= 18) ? 'true' : (age < 18) ? confirm('Did youre parents allow you?') : 'Riprova'; };
+// console.log(checkAge(age));
+
+/* --------------------- exercise ------------------- */
+
+/*Scrivi una funzione min(a,b)che restituisce il minimo di due numeri ae b.
+
+Per esempio:*/
+
+// min(2, 5) == 2
+// min(3, -1) == -1
+// min(1, 1) == 1
+
+/* ----------------- result -------------------------- */
+
+// let firstNum = 112;
+// let secondNum = 67;
+// let a = firstNum;
+// let b = secondNum;
+
+// function calcNumberMin(a, b) {
+//   if (a < b) {
+//     return a;
+//   } else if (a > b) {
+//     return b;
+//   }
+// }
+
+// console.log(calcNumberMin(a,b));
+
+
+/* --------------------- exercise ------------------- */
+/*Scrivi una funzione pow(x,n)che ritorna x al potere n. O, in altre parole, 
+si moltiplica x da solo i n tempi e restituisce il risultato.*/
+
+// pow(3, 2) = 3 * 3 = 9
+// pow(3, 3) = 3 * 3 * 3 = 27
+// pow(1, 100) = 1 * 1 * ...* 1 = 1
+
+/* ----------------- result -------------------------- */
+
+// let numero = 3;
+// let elevatorePotenza = 4;
+// let a = numero;
+// let b = elevatorePotenza;
+
+// function calPotenzaNumero(a,b) {
+
+//   let risultato = a ; // simple solution
+//   for (let index = 1; index < b; index++) {
+//    risultato *= a ;
+//   }
+//   return risultato;
+// }
+// console.log(calPotenzaNumero(a,b) );
+
+
+
+
