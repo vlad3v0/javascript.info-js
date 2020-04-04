@@ -873,3 +873,91 @@ inside the function, but we need an explicit return to return something. */
 // } else {
 //   alert( pow(x, n) )
 // }
+
+/*  in good code, the amount of such “explanatory” comments should be minimal. Seriously, the code should be easy to understand without them.
+
+There’s a great rule about that: “if the code is so unclear that it requires a comment, then maybe it should be rewritten instead”.
+
+Recipe: factor out functions
+Sometimes it’s beneficial to replace a code piece with a function, like here: */
+
+
+// function showPrimes(n) {
+//   nextPrime:
+//   for (let i = 2; i < n; i++) {
+
+//     // check if i is a prime number
+//     for (let j = 2; j < i; j++) {
+//       if (i % j == 0) continue nextPrime;
+//     }
+
+//     alert(i);
+//   }
+// }
+
+// // The better variant, with a factored out function isPrime:
+
+//                               function showPrimes(n) {
+
+//   for (let i = 2; i < n; i++) {
+//     if (!isPrime(i)) continue;
+
+//     alert(i);
+//   }
+// }
+
+// function isPrime(n) {
+//   for (let i = 2; i < n; i++) {
+//     if (n % i == 0) return false;
+//   }
+
+//   return true;
+// }
+
+/*Now we can understand the code easily. The function itself becomes the comment.
+Such code is called self-descriptive.
+
+Recipe: create functions
+And if we have a long “code sheet” like this: */
+
+// // here we add whiskey
+// for(let i = 0; i < 10; i++) {
+//   let drop = getWhiskey();
+//   smell(drop);
+//   add(drop, glass);
+// }
+
+// // here we add juice
+// for(let t = 0; t < 3; t++) {
+//   let tomato = getTomato();
+//   examine(tomato);
+//   let juice = press(tomato);
+//   add(juice, glass);
+// }
+
+// // ...Then it might be a better variant to refactor it into functions like:
+
+// addWhiskey(glass);
+// addJuice(glass);
+
+// function addWhiskey(container) {
+//   for(let i = 0; i < 10; i++) {
+//     let drop = getWhiskey();
+//     //...
+//   }
+// }
+
+// function addJuice(container) {
+//   for(let t = 0; t < 3; t++) {
+//     let tomato = getTomato();
+//     //...
+//   }
+// }
+
+/* Once again, functions themselves tell what’s going on. There’s nothing to comment.
+And also the code structure is better when split. It’s clear what every function does,
+what it takes and what it returns.
+
+In reality, we can’t totally avoid “explanatory” comments. There are complex algorithms.
+And there are smart “tweaks” for purposes of optimization.
+But generally we should try to keep the code simple and self-descriptive.  */
