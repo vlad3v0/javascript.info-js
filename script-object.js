@@ -221,14 +221,173 @@
 //   alert( user.name ); // still John in the original object
 
 
-let user = { name: "John" };
+// let user = { name: "John" };
 
-let permissions1 = { canView: true };
-let permissions2 = { canEdit: true };
+// let permissions1 = { canView: true };
+// let permissions2 = { canEdit: true };
 
-// copies all properties from permissions1 and permissions2 into user
-Object.assign(user, permissions1, permissions2);
+// // copies all properties from permissions1 and permissions2 into user
+// Object.assign(user, permissions1, permissions2);
 
-// now user = { name: "John", canView: true, canEdit: true }
+// // now user = { name: "John", canView: true, canEdit: true }
 
-console.log(user);
+// console.log(user);
+/********If the receiving object (user) already has the same named property, it will be overwritten:   */
+
+// let user = { name: "John" };
+
+// // overwrite name, add isAdmin
+// Object.assign(user, { name: "Pete", isAdmin: true });
+
+// // now user = { name: "Pete", isAdmin: true }
+
+/****** cloning about Object.assign */
+// let user = {
+//     name: "John",
+//     age: 30
+//   };
+  
+//   let clone = Object.assign({}, user);
+
+// let user = {
+//     name: "John",
+//     sizes: {
+//       height: 182,
+//       width: 50
+//     }
+//   };
+  
+//   alert( user.sizes.height ); // 182
+
+//   let user = {
+//     name: "John",
+//     sizes: {
+//       height: 182,
+//       width: 50
+//     }
+//   };
+  
+//   let clone = Object.assign({}, user);
+  
+//   alert( user.sizes === clone.sizes ); // true, same object
+  
+//   // user and clone share sizes
+//   user.sizes.width++;       // change a property from one place
+//   alert(clone.sizes.width); // 51, see the result from the other one
+
+/* --------------------- exercise ------------------- */
+/* Write the code, one line for each action:
+
+Create an empty object user.
+Add the property name with the value John.
+Add the property surname with the value Smith.
+Change the value of the name to Pete.
+Remove the property name from the object. */
+
+
+
+/* ----------------- result -------------------------- */
+
+// let user = {};
+
+// user.name = 'Vlad';
+// user.surname = 'Rossi';
+
+// console.log(user);
+
+// user.name = 'Pete';
+
+// console.log(user);
+
+// delete user.name;
+
+// console.log(user);
+
+
+/* --------------------- exercise ------------------- */
+/* We have an object storing salaries of our team:  */
+
+// let salaries = {
+//     John: 100,
+//     Ann: 160,
+//     Pete: 130
+//   };
+
+// let sumSalaries = calcSalaries(salaries);
+
+// function calcSalaries(salaries) {
+//     let sum = 0;
+//     for (const key in salaries) {
+//        sum = sum + salaries[key];
+//     }
+//     return sum;
+// };
+
+// console.log(sumSalaries);
+
+/* ----------------- result -------------------------- */
+
+
+// let sumSalaries = calcSalaries(salaries);
+
+// function calcSalaries(salaries) {
+//     let sum = 0;
+//     for (const key in salaries) {
+//        sum = sum + salaries[key];
+//     }
+//     return sum;
+// };
+
+// console.log(sumSalaries);
+
+
+/* --------------------- exercise ------------------- */
+/* Create a function multiplyNumeric(obj) that multiplies all numeric properties of obj by 2. */
+
+// before the call
+// let menu = {
+//     width: 200,
+//     height: 300,
+//     title: "My menu"
+//   };
+  
+//   multiplyNumeric(menu);
+//   console.log(menu);
+
+  
+  
+  // after the call
+//   menu = {
+//     width: 400,
+//     height: 600,
+//     title: "My menu"
+//   };
+
+
+/* ----------------- result -------------------------- */
+
+// function multiplyNumeric(menu) {
+
+//     for (let key in menu) {
+
+//         if (typeof menu[key] == 'number') {
+
+//             menu[key] = menu[key] * 2 ;
+
+//         }
+
+//     }
+//     return;
+
+// }
+
+// alternative about obj[key] 
+
+// function multiplyNumeric(obj) {
+//     for (let key in obj) {
+//       if (typeof obj[key] == 'number') {
+//         obj[key] *= 2;
+//       }
+//     }
+//   }
+
