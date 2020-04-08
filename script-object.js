@@ -610,25 +610,131 @@ Remove the property name from the object. */
 call obj.go() method 4 times in a row.
 But calls (1) and (2) works differently from (3) and (4). Why? */
 
-let obj, method;
+// let obj, method;
 
-obj = {
-  go: function() { alert(this); }
-};
+// obj = {
+//   go: function() { alert(this); }
+// };
 
-obj.go();               // (1) [object Object]
+// obj.go();               // (1) [object Object]
 
-(obj.go)();             // (2) [object Object]
+// (obj.go)();             // (2) [object Object]
 
-(method = obj.go)();    // (3) undefined
+// (method = obj.go)();    // (3) undefined
 
-(obj.go || obj.stop)(); // (4) undefined
+// (obj.go || obj.stop)(); // (4) undefined
 
 /* ----------------- result -------------------------- */
 
+// Here’s the explanations.
+
+// 1 That’s a regular object method call.
+
+// 2 The same, parentheses do not change the order of operations here, the
+//  dot is first anyway.
+
+// 3 Here we have a more complex call (expression).method(). The call works as
+//  if it were split into two lines:
+
+// f = obj.go; // calculate the expression
+// f();        // call what we have
+// Here f() is executed as a function, without this.
+
+// 4 The similar thing as (3), to the left of the dot . we have an expression.
+
+// To explain the behavior of (3) and (4) we need to recall that property accessors
+//  (dot or square brackets) return a value of the Reference Type.
+
+// Any operation on it except a method call (like assignment = or ||) turns it into 
+// an ordinary value, which does not carry the information allowing to set this.
+
+/* --------------------- exercise ------------------- */
+/* Here the function makeUser returns an object.
+What is the result of accessing its ref? Why? */
+
+
+// function makeUser() {
+//   return {
+//     name: "John",
+//     ref: this
+//   };
+// };
+
+
+// let user = makeUser();
+
+// alert( user.ref.name ); // What's the result?
+
+
+/* ----------------- result -------------------------- */
+// Error becouse doesn't a method is a fucntion
+// the correct is
+
+
+// function makeUser() {
+//   return {
+//     name: "John",
+//     ref: function() {
+//       return this;
+//     }
+//   };
+// };
+
+
+// let user = makeUser();
+
+// alert( user.ref().name ); 
+
+
+/* --------------------- exercise ------------------- */
+/* Create a calculator
+Create an object calculator with three methods:
+
+read() prompts for two values and saves them as object properties.
+sum() returns the sum of saved values.
+mul() multiplies saved values and returns the result. */
+
+// let calculator = {
+// //code
+// }
+
+// calculator.read();
+// alert(calculator.sum());
+// alert(calculator.mul());
+
+
+/* ----------------- result -------------------------- */
+
+// let calculator = {
+//   read() {
+//       this.a = prompt('Inserisci un numeo');
+//       this.b = prompt('Inserisci un numeo');    
+//   },
+//   sum() {
+//     return this.a + this.b;
+//   },
+
+//   mul() {
+//     return this.a * this.b;
+//   }
+//   // sum() {
+//   //   console.log();
+//   // }
+// };
+
+//   // sum: function ( a, b ) {
+//   //   a + b;
+//   //   return this;
+
+// calculator.read();
+// console.log(calculator);
+
+// // alert( calculator.sum() );
+// // alert( calculator.mul() );
 
 /* --------------------- exercise ------------------- */
 /* */
+
 
 
 
