@@ -705,32 +705,25 @@ mul() multiplies saved values and returns the result. */
 
 /* ----------------- result -------------------------- */
 
-// let calculator = {
-//   read() {
-//       this.a = prompt('Inserisci un numeo');
-//       this.b = prompt('Inserisci un numeo');    
-//   },
-//   sum() {
-//     return this.a + this.b;
-//   },
+let calculator = {
+  read() {
+      this.a = prompt('Inserisci un numeo');
+      this.b = prompt('Inserisci un numeo');    
+  },
+  sum() {
+    return this.a + this.b;
+  },
 
-//   mul() {
-//     return this.a * this.b;
-//   }
-//   // sum() {
-//   //   console.log();
-//   // }
-// };
+  mul() {
+    return this.a * this.b;
+  }
+};
 
-//   // sum: function ( a, b ) {
-//   //   a + b;
-//   //   return this;
+calculator.read();
+console.log(calculator);
 
-// calculator.read();
-// console.log(calculator);
-
-// // alert( calculator.sum() );
-// // alert( calculator.mul() );
+// alert( calculator.sum() );
+// alert( calculator.mul() );
 
 /* --------------------- exercise ------------------- */
 /* */
