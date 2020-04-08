@@ -391,7 +391,25 @@ Remove the property name from the object. */
 //     }
 //   }
 
+// let user = {
+//   name: "John",
+//   surname: 'Coperfield',
+//   age: 10
+// };
 
+// multiplyNumeric(user)
+// console.log(user);
+
+
+// function multiplyNumeric(obj) {
+//   for (let key in obj) {
+//     if (typeof obj[key] == 'number') {
+//       obj[key] *= 2;
+//     } else {
+//       obj[key];
+//     }
+//   }
+// }
 
 
 /**********************************************************************
@@ -399,7 +417,221 @@ Remove the property name from the object. */
 **********************************************************************/
 
 // user has a reference to the object
-let user = {
-    name: "John"
-  };
+// let user = {
+//     name: "John"
+//  };
+
+//  user = null;
+
+//  console.log(user);
+
+
+ //user has a reference to the object
+
+//  let user = {
+//     name: "John"
+//  };
+
+//  let admin = user;
+
+//  user = null;
+
+//  console.log(admin);
+
+
+/***************** objects interlinked ************* */
+// function marry(man, woman) {
+//   woman.husband = man;
+//   man.wife = woman;
+
+//   return {
+//     father: man,
+//     mother: woman
+//   }
   
+// }
+
+// let family = marry(
+//    {name: 'Vlad'} ,
+//    {name: 'Superposs'} 
+//    );
+
+// delete family.father;
+// delete family.mother.husband;
+//    console.log(family);
+
+/********** unreachable island */
+   
+// unction marry(man, woman) {
+//   woman.husband = man;
+//   man.wife = woman;
+
+//   return {
+//     father: man,
+//     mother: woman
+//   }
+  
+// }
+
+// let family = marry(
+//    {name: 'Vlad'} ,
+//    {name: 'Superposs'} 
+// );
+
+// family = null; 
+
+// console.log(family);
+
+
+  /**********************************************************************
+******[ Metodi  Object , this ] *****************************************
+**********************************************************************/
+
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// user.sayHi = function() {
+//   alert('Hello Friend !');
+// };
+
+// user.sayHi();
+// console.log(user);
+
+// let user = {
+//   name: 'Vlad',
+//   age: 30
+// };
+
+// function sayHi() {
+//   alert('Ciao')
+// };
+
+// // add as a metod
+// user.sayHi = sayHi;
+
+// user.sayHi();
+
+/* metod shorthand */
+// theese object di the same
+
+// user = {
+//   sayHi: function() {
+//     alert('Hello');
+//   }
+// };
+
+// user.sayHi();
+
+// // method shorthand looks better, right?
+// user = {
+//   sayHi() {
+//     alert('Hello');
+//   }
+// }
+
+// user.sayHi();
+
+/* this in the metod */
+
+// let user = {
+//   name: "John",
+//   age: 30,
+
+//   sayHi() {
+//     // "this" is the "current object"
+//     alert(this.name);
+//   }
+
+// };
+
+// user.sayHi(); 
+
+// attection 
+
+// let user = {
+//   name: 'jig',
+//   age: 30,
+
+//   sayHi() {
+//     alert( user.name );
+//   }
+// };
+
+// let admin = user;
+
+// user = null;
+
+// console.log(admin);
+
+// admin.sayHi();
+
+/* thi is not a bound */
+
+// let user = { name: "John" };
+// let admin = { name: "Admin" };
+
+// function sayHi() {
+//   alert( this.name );
+// }
+
+// // use the same function in two objects
+// user.f = sayHi;
+// admin.f = sayHi;
+
+// these calls have different this
+// "this" inside the function is the object "before the dot"
+// user.f(); // John  (this == user)
+// admin.f(); // Admin  (this == admin)
+
+// admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)
+
+/* --------------------- exercise ------------------- */
+/*Syntax check - What is the result of this code?*/
+
+// let user = {
+//   name: "John",
+//   go: function() { alert(this.name) }
+// }
+
+// (user.go)();
+/* ----------------- result -------------------------- */
+
+// error
+
+// the correct metod is
+
+// user.go();
+
+
+/* --------------------- exercise ------------------- */
+/* Explain the value of "this" In the code below we intend to 
+call obj.go() method 4 times in a row.
+But calls (1) and (2) works differently from (3) and (4). Why? */
+
+let obj, method;
+
+obj = {
+  go: function() { alert(this); }
+};
+
+obj.go();               // (1) [object Object]
+
+(obj.go)();             // (2) [object Object]
+
+(method = obj.go)();    // (3) undefined
+
+(obj.go || obj.stop)(); // (4) undefined
+
+/* ----------------- result -------------------------- */
+
+
+/* --------------------- exercise ------------------- */
+/* */
+
+
+
+/* ----------------- result -------------------------- */
+
+
