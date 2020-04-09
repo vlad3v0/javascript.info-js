@@ -705,32 +705,172 @@ mul() multiplies saved values and returns the result. */
 
 /* ----------------- result -------------------------- */
 
-let calculator = {
-  read() {
-      this.a = prompt('Inserisci un numeo');
-      this.b = prompt('Inserisci un numeo');    
-  },
-  sum() {
-    return this.a + this.b;
-  },
+// let calculator = {
+//   read() {
+//       this.a = prompt('Inserisci un numeo');
+//       this.b = prompt('Inserisci un numeo');    
+//   },
+//   sum() {
+//     return this.a + this.b;
+//   },
 
-  mul() {
-    return this.a * this.b;
-  }
-};
+//   mul() {
+//     return this.a * this.b;
+//   }
+// };
 
-calculator.read();
-console.log(calculator);
+// calculator.read();
+// console.log(calculator);
 
 // alert( calculator.sum() );
 // alert( calculator.mul() );
 
 /* --------------------- exercise ------------------- */
-/* */
+/*There’s a ladder object that allows to go up and down: */
 
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//   },
+//   down() {
+//     this.step--;
+//   },
+//   showStep: function() { // shows the current step
+//     alert( this.step );
+//   }
+// };
 
+/* Now, if we need to make several calls in sequence, can do it like this: */
+
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+/* Modify the code of up, down and showStep to make the calls chainable, like this: */
+
+// ladder.up().up().down().showStep(); // 1 
+
+/* Such approach is widely used across JavaScript libraries. */
 
 
 /* ----------------- result -------------------------- */
 
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+//     return this;
+//   },
+//   showStep() {
+//     alert( this.step );
+//     return this;
+//   }
+// }
 
+// ladder.up().up().down().up().down().showStep(); // 1
+
+ /**********************************************************************
+******[ Object to primitive conversion ] *******************************
+**********************************************************************/
+
+// // output
+// alert(obj);
+
+// // using object as a property key
+// anotherObj[obj] = 123
+
+// // explicit conversion
+// let num = number(obj);
+// console.log(num);
+
+
+// maths (except binary plus)
+// let n = +obj; // unary plus
+// console.log(n);
+
+// let delta = date1 - date2;
+// console.log(delta);
+
+
+// less/greater comparison
+// let greater = user1 > user2;
+
+// obj[Symbol.toPrimitive] = function(hint) {
+//   // must return a primitive value
+//   // hint = one of "string", "number", "default"
+// };
+
+// let user = {
+//   name: 'John',
+//   money: 1000,
+
+//   [Symbol.toPrimitive](hint) {
+//     alert( `hint: ${hint}` );
+//     return hint == "string" ? `{name: "${this.name}"}` : this.money;
+//   }
+// };
+
+// alert(user); // hint: string -> {name: "John"}
+// alert(+user); // hint: number -> 1000
+// alert(user + 500);  // hint: default -> 1500
+
+
+// let user = {
+//   name: "John",
+//   money: 1000,
+
+//   // for hint="string"
+//   toString() {
+//     return `{name: "${this.name}"}`;
+//   },
+
+//   // for hint="number" or "default"
+//   valueOf() {
+//     return this.money;
+//   }
+
+// };
+
+// alert(user); // toString -> {name: "John"}
+// alert(+user); // valueOf -> 1000
+// alert(user + 500); // valueOf -> 1500
+
+
+ /**********************************************************************
+******[ constructor new ] **********************************************
+**********************************************************************/
+
+// function User(name) {
+//   this.name = name;
+//   this.isAdmin = false;
+// }
+
+// let user = new User("Jack");
+
+// alert(user.name); // Jack
+// alert(user.isAdmin); // false
+
+// function User(name) {
+//   // this = {};  (implicitly)
+
+//   // add properties to this
+//   this.name = name;
+//   this.isAdmin = false;
+
+//   // return this;  (implicitly)
+// }
+
+
+let user = new function() {
+  this.name = "John";
+  this.isAdmin = false;
+
+  // ...other code for user creation
+  // maybe complex logic and statements
+  // local variables etc
+};
