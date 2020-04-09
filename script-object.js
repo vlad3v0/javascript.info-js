@@ -855,6 +855,9 @@ mul() multiplies saved values and returns the result. */
 // alert(user.name); // Jack
 // alert(user.isAdmin); // false
 
+/* function constructor */
+
+
 // function User(name) {
 //   // this = {};  (implicitly)
 
@@ -866,11 +869,150 @@ mul() multiplies saved values and returns the result. */
 // }
 
 
-let user = new function() {
-  this.name = "John";
-  this.isAdmin = false;
+// let user = new function() {
+//   this.name = "John";
+//   this.isAdmin = false;
 
-  // ...other code for user creation
-  // maybe complex logic and statements
-  // local variables etc
+//   // ...other code for user creation
+//   // maybe complex logic and statements
+//   // local variables etc
+// };
+
+// console.log(user);
+
+// function BigUser() {
+
+//   this.name = "John";
+
+//   return { name: "Godzilla" };  // <-- returns this object
+// }
+
+// alert( new BigUser().name );  // Godzilla, got that object
+
+
+// function SmallUser() {
+
+//   this.name = "John";
+
+//   return; // <-- returns this
+// }
+
+// alert( new SmallUser().name );  // John
+
+
+
+// function User(name) {
+//   this.name = name;
+
+//   this.sayHi = function() {
+//     alert( "My name is: " + this.name );
+//   };
+// }
+
+// let john = new User("John");
+// let vlad = new User('Vlad');
+// let albert = new User('Alberto');
+
+// john.sayHi(); // My name is: John
+// vlad.sayHi();
+// albert.sayHi();
+
+/*
+john = {
+   name: "John",
+   sayHi: function() { ... }
+}
+*/
+
+
+/* --------------------- exercise ------------------- */
+/* Is it possible to create functions A and B such as new A()==new B()? */
+
+// function A() { ... }
+// function B() { ... }
+
+// let a = new A;
+// let b = new B;
+
+// alert( a == b ); // true
+
+
+/* ----------------- result -------------------------- */
+
+
+// let obj = {};
+
+// function A() { alert('ciao'); return obj; }
+// function B() {  alert('ciao'); return obj; }
+
+// alert( new A() == new B() ); // true
+
+/* --------------------- exercise ------------------- */
+/* Create a constructor function Calculator that creates objects with 3 methods:
+
+read() asks for two values using prompt and remembers them in object properties.
+sum() returns the sum of these properties.
+mul() returns the multiplication product of these properties. */
+
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert( "Sum=" + calculator.sum() );
+// alert( "Mul=" + calculator.mul() );
+
+
+/* ----------------- result -------------------------- */
+
+function Calculator() {
+  this.read = function() {
+    this.a = +prompt('Inserisci un numero', 0);
+    this.b = +prompt('Inserisci un numero', 0);
+  };
+  this.sum =  function( a , b ) {
+    return this.a + this.b ;
+    
+  };
+  
+  this.mult =  function( a , b ) {
+    return this.a * this.b ;
+  };
 };
+
+
+let calculator = new Calculator();
+calculator.read();
+calculator.sum();
+calculator.mult();
+
+console.log(calculator.a);
+console.log(calculator.b);
+
+
+console.log(" Sum = " + calculator.sum());
+
+console.log(" Mul = " + calculator.mult());
+
+/* --------------------- exercise ------------------- */
+/* Create a constructor function Accumulator(startingValue).
+
+Object that it creates should:
+
+Store the “current value” in the property value. The starting value is set
+ to the argument of the constructor startingValue.
+The read() method should use prompt to read a new number and add it to value.
+In other words, the value property is the sum of all user-entered values with 
+the initial value startingValue.
+
+Here’s the demo of the code: */
+
+// let accumulator = new Accumulator(1); // initial value 1
+
+// accumulator.read(); // adds the user-entered value
+// accumulator.read(); // adds the user-entered value
+
+// alert(accumulator.value); // shows the sum of these values
+
+
+
+/* ----------------- result -------------------------- */
+
