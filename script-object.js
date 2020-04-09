@@ -963,39 +963,39 @@ mul() returns the multiplication product of these properties. */
 
 /* ----------------- result -------------------------- */
 
-function Calculator() {
-  this.read = function() {
-    this.a = +prompt('Inserisci un numero', 0);
-    this.b = +prompt('Inserisci un numero', 0);
-  };
-  this.sum =  function( a , b ) {
-    return this.a + this.b ;
+// function Calculator() {
+//   this.read = function() {
+//     this.a = +prompt('Inserisci un numero', 0);
+//     this.b = +prompt('Inserisci un numero', 0);
+//   };
+//   this.sum =  function( a , b ) {
+//     return this.a + this.b ;
     
-  };
+//   };
   
-  this.mult =  function( a , b ) {
-    return this.a * this.b ;
-  };
-};
+//   this.mult =  function( a , b ) {
+//     return this.a * this.b ;
+//   };
+// };
 
 
-let calculator = new Calculator();
-calculator.read();
-calculator.sum();
-calculator.mult();
+// let calculator = new Calculator();
+// calculator.read();
+// calculator.sum();
+// calculator.mult();
 
-console.log(calculator.a);
-console.log(calculator.b);
+// console.log(calculator.a);
+// console.log(calculator.b);
 
 
-console.log(" Sum = " + calculator.sum());
+// console.log(" Sum = " + calculator.sum());
 
-console.log(" Mul = " + calculator.mult());
+// console.log(" Mul = " + calculator.mult());
 
-/* --------------------- exercise ------------------- */
-/* Create a constructor function Accumulator(startingValue).
+// /* --------------------- exercise ------------------- */
+// /* Create a constructor function Accumulator(startingValue).
 
-Object that it creates should:
+/* Object that it creates should:
 
 Store the “current value” in the property value. The starting value is set
  to the argument of the constructor startingValue.
@@ -1016,3 +1016,25 @@ Here’s the demo of the code: */
 
 /* ----------------- result -------------------------- */
 
+
+function Accumulator(startingValue) {
+
+  this.value = startingValue;
+
+  this.read = function() {
+    this.value = +prompt('Inserisci un numero da memorizzare') + this.value;
+  return;
+  } 
+}
+
+
+let accumulator = new Accumulator(1);
+
+accumulator.read();
+console.log(accumulator.value);
+
+accumulator.read();
+console.log(accumulator.value);
+
+
+alert(accumulator.value);
