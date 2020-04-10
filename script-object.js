@@ -1017,24 +1017,25 @@ Here’s the demo of the code: */
 /* ----------------- result -------------------------- */
 
 
-function Accumulator(startingValue) {
+// function Accumulator(startingValue) {
 
-  this.value = startingValue;
+//   this.value = startingValue;
 
-  this.read = function() {
-    this.value = +prompt('Inserisci un numero da memorizzare') + this.value;
-  return;
-  } 
-}
-
-
-let accumulator = new Accumulator(1);
-
-accumulator.read();
-console.log(accumulator.value);
-
-accumulator.read();
-console.log(accumulator.value);
+//   this.read = function() {
+//     this.value = +prompt('Inserisci un numero da memorizzare') + this.value;
+//   return;
+//   } 
+// }
 
 
-alert(accumulator.value);
+// let accumulator = new Accumulator(1);
+
+// accumulator.read();
+// console.log(accumulator.value);
+
+// accumulator.read();
+// console.log(accumulator.value);
+
+
+// alert(accumulator.value);
+
