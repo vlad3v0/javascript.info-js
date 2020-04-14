@@ -437,3 +437,85 @@ alert( random(1, 5) ); // 4.3435234525 */
 
 // let str = "stringify";
 // alert( str.substr(-4, 2) ); // 'gi', from the 4th position get 2 characters
+
+
+
+/* --------------------- exercise ------------------- */
+/*  Uppercase the first character 
+Write a function ucFirst(str) that returns the string str with the 
+uppercased first character, for instance:
+ucFirst("john") == "John";*/
+
+
+/* ----------------- result -------------------------- */
+
+// function ucFirst(str) {
+//   if (!str) return str;
+
+//   return str[0].toUpperCase() + str.slice(1);
+// }
+
+// alert( ucFirst("john") ); // John
+
+
+/* --------------------- exercise ------------------- */
+/* Write a function checkSpam(str) that returns true if str contains ‘viagra’
+ or ‘XXX’, otherwise false. 
+ The function must be case-insensitive:
+
+checkSpam('buy ViAgRA now') == true
+checkSpam('free xxxxx') == true
+checkSpam("innocent rabbit") == false     */
+
+
+/* ----------------- result -------------------------- */
+
+// function checkSpam(str) {
+//   let lowerStr = str.toLowerCase();
+
+//   return lowerStr.includes('viagra') || lowerStr.includes('xxx');
+// }
+
+// alert( checkSpam('buy ViAgRA now') );
+
+// alert( checkSpam('free xxxxx') );
+
+// alert( checkSpam("innocent rabbit") );
+
+/* --------------------- exercise ------------------- */
+/*  Create a function truncate(str, maxlength) that checks the length of the 
+str and, if it exceeds maxlength – replaces the end of str with the ellipsis
+ character "…", to make its length equal to maxlength.
+The result of the function should be the truncated (if needed) string.
+For instance:
+
+truncate("What I'd like to tell on this topic is:", 20) = "What I'd like to te…"
+truncate("Hi everyone!", 20) = "Hi everyone!"*/
+
+
+/* ----------------- result -------------------------- */
+
+// function truncate(str, maxlength) {
+
+//   return (str.length > maxlength) ?
+
+//     str.slice(0, maxlength - 1) + '…' : str;
+// }
+
+// console.log(truncate("Hi evereyone! ", 10));
+
+
+/* --------------------- exercise ------------------- */
+/* We have a cost in the form "$120". That is: the dollar sign goes first, and then the number.
+Create a function extractCurrencyValue(str) that would extract the numeric value from such 
+string and return it.
+The example:
+
+alert( extractCurrencyValue('$120') === 120 ); // true */
+
+
+/* ----------------- result -------------------------- */
+
+// function extractCurrencyValue(str) {
+//   return +str.slice(1);
+// }
