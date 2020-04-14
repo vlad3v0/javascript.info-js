@@ -292,3 +292,148 @@ alert( random(1, 5) ); // 4.3435234525 */
 // let guestList = "Guests:\n * John\n * Pete\n * Mary";
 
 // alert(guestList); // a multiline list of guests
+
+
+/* ************ special characters **********************/
+
+
+
+// let guestList = "Guests:\n * John\n * Pete\n * Mary";
+
+// alert(guestList); // a multiline list of guests
+
+// let str1 = "Hello\nWorld"; // two lines using a "newline symbol"
+
+// // two lines using a normal newline and backticks
+// let str2 = `Hello
+// World`;
+
+// alert(str1 == str2); // true
+
+
+/* ************ string lenght **********************/
+
+
+// alert( `My\n`.length ); // 3
+
+// let str = `Hello`;
+
+// // the first character
+// alert( str[0] ); // H
+// alert( str.charAt(0) ); // H
+
+// // the last character
+// alert( str[str.length - 1] ); // o
+
+
+
+// let str = `Hello`;
+
+// alert( str[1000] ); // undefined
+// alert( str.charAt(1000) ); // '' (an empty string)
+
+// for (let char of "Hello") {
+//   alert(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+// }
+
+
+// let str = 'Hi';
+
+// str[0] = 'h'; // error
+// alert( str[0] ); // doesn't work
+
+
+// let str = 'Hi';
+
+// str = 'h' + str[1]; // replace the string
+
+// alert( str ); // hi
+
+/* *************** Changing the case ************* */
+
+// alert( 'Interface'.toUpperCase() ); // INTERFACE
+// alert( 'Interface'.toLowerCase() ); // interface
+
+// alert( 'Interface'[0].toLowerCase() ); // 'i'
+
+
+/****************** Searching for a substring ***** */
+
+
+
+// let str = 'Widget with id';
+
+// alert( str.indexOf('Widget') ); // 0, because 'Widget' is found at the beginning
+// alert( str.indexOf('widget') ); // -1, not found, the search is case-sensitive
+
+// alert( str.indexOf("id") ); // 1,
+
+
+
+
+// let str = 'Widget with id';
+
+// alert( str.indexOf('id', 2) ) // 12
+
+
+
+
+// let str = 'As sly as a fox, as strong as an ox';
+
+// let target = 'as'; // let's look for it
+
+// let pos = 0;
+// while (true) {
+//   let foundPos = str.indexOf(target, pos);
+//   if (foundPos == -1) break;
+
+//   alert( `Found at ${foundPos}` );
+//   pos = foundPos + 1; // continue the search from the next position
+
+// }
+
+
+
+// let str = "As sly as a fox, as strong as an ox";
+// let target = "as";
+
+// let pos = -1;
+// while ((pos = str.indexOf(target, pos + 1)) != -1) {
+//   alert( pos );
+// }
+
+
+// let str = "Widget with id";
+
+// if (str.indexOf("Widget")) {
+//     alert("We found it"); // doesn't work!
+
+
+
+//     let str = "Widget with id";
+
+// if (str.indexOf("Widget") != -1) {
+//     alert("We found it"); // works now!
+// }
+
+
+/******************** Getting a substring ***********/
+
+// let str = "stringify";
+// alert( str.slice(0, 5) ); // 'strin', the substring from 0 to 5 (not including 5)
+// alert( str.slice(0, 1) ); // 's', from 0 to 1, but not including 1, so only character at 0
+
+// let str = "stringify";
+
+// alert( str.slice(2) ); // 'ringify', from the 2nd position till the end
+
+// let str = "stringify";
+
+// // start at the 4th position from the right, end at the 1st from the right
+// alert( str.slice(-4, -1) ); // 'gif'
+
+// let str = "stringify";
+// alert( str.substr(2, 4) ); // 'ring', from the 2nd position get 4 characters
+
+// let str = "stringify";
+// alert( str.substr(-4, 2) ); // 'gi', from the 4th position get 2 characters
